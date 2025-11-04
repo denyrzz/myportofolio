@@ -18,9 +18,9 @@
                     </h1>
                 </div>
 
-                <p class="text-base sm:text-lg md:text-xl text-white mt-6">
-                    Let's build something great together.
-                </p>
+                <DecryptedText text="Let's build something great together" :speed="80" :max-iterations="10"
+                    :sequential="false" reveal-direction="start" :use-original-chars-only="false" animate-on="hover"
+                    class="text-base sm:text-lg md:text-xl text-white mt-6" encrypted-class-name="text-white-500" />
             </div>
 
             <ElectricBorder :color="'#ffffff'" :speed="1" :chaos="0.5" :thickness="2" :style="{ borderRadius: '16px' }">
@@ -70,4 +70,5 @@
 <script setup lang="ts">
 import RotatingText from "~/components/RotatingText.vue";
 import ElectricBorder from "~/components/ElectricBorder.vue";
+import DecryptedText from "~/components/DecryptedText.vue";
 </script>

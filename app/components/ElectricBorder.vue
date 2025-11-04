@@ -33,8 +33,8 @@ function hexToRgba(hex: string, alpha = 1): string {
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
 
-const rawId = `id-${crypto.randomUUID().replace(/[:]/g, '')}`;
-const filterId = `turbulent-displace-${rawId}`;
+// FIX: Generate ID hanya di client side untuk hindari hydration mismatch
+const filterId = ref('');
 
 const svgRef = useTemplateRef('svgRef');
 const rootRef = useTemplateRef('rootRef');
@@ -43,35 +43,40 @@ const strokeRef = useTemplateRef('strokeRef');
 const updateAnim = () => {
   const svg = svgRef.value;
   const host = rootRef.value;
-  if (!svg || !host) return;
+  if (!svg || !host || !filterId.value) return;
 
   if (strokeRef.value) {
-    strokeRef.value.style.filter = `url(#${filterId})`;
+    strokeRef.value.style.filter = `url(#${filterId.value})`;
   }
 
   const width = Math.max(1, Math.round(host.clientWidth || host.getBoundingClientRect().width || 0));
   const height = Math.max(1, Math.round(host.clientHeight || host.getBoundingClientRect().height || 0));
 
   const dyAnims = Array.from(svg.querySelectorAll('feOffset > animate[attributeName="dy"]')) as SVGAnimateElement[];
+  // FIX: Tambahkan optional chaining untuk handle array kosong
   if (dyAnims.length >= 2) {
-    dyAnims[0].setAttribute('values', `${height}; 0`);
-    dyAnims[1].setAttribute('values', `0; -${height}`);
+    dyAnims[0]?.setAttribute('values', `${height}; 0`);
+    dyAnims[1]?.setAttribute('values', `0; -${height}`);
   }
 
   const dxAnims = Array.from(svg.querySelectorAll('feOffset > animate[attributeName="dx"]')) as SVGAnimateElement[];
+  // FIX: Tambahkan optional chaining untuk handle array kosong
   if (dxAnims.length >= 2) {
-    dxAnims[0].setAttribute('values', `${width}; 0`);
-    dxAnims[1].setAttribute('values', `0; -${width}`);
+    dxAnims[0]?.setAttribute('values', `${width}; 0`);
+    dxAnims[1]?.setAttribute('values', `0; -${width}`);
   }
 
   const baseDur = 6;
   const dur = Math.max(0.001, baseDur / (props.speed || 1));
-  [...dyAnims, ...dxAnims].forEach(a => a.setAttribute('dur', `${dur}s`));
+  
+  // FIX: Gabungkan array dengan spread operator yang aman
+  const allAnims = [...(dyAnims || []), ...(dxAnims || [])];
+  allAnims.forEach(a => a?.setAttribute('dur', `${dur}s`));
 
   const disp = svg.querySelector('feDisplacementMap');
   if (disp) disp.setAttribute('scale', String(30 * (props.chaos || 1)));
 
-  const filterEl = svg.querySelector<SVGFilterElement>(`#${CSS.escape(filterId)}`);
+  const filterEl = svg.querySelector<SVGFilterElement>(`#${CSS.escape(filterId.value)}`);
   if (filterEl) {
     filterEl.setAttribute('x', '-200%');
     filterEl.setAttribute('y', '-200%');
@@ -80,8 +85,8 @@ const updateAnim = () => {
   }
 
   requestAnimationFrame(() => {
-    [...dyAnims, ...dxAnims].forEach((a: SVGAnimateElement) => {
-      if (typeof a.beginElement === 'function') {
+    allAnims.forEach((a: SVGAnimateElement | undefined) => {
+      if (a && typeof a.beginElement === 'function') {
         try {
           a.beginElement();
         } catch {}
@@ -101,10 +106,21 @@ watch(
 let ro: ResizeObserver | null = null;
 
 onMounted(() => {
+  // FIX: Generate ID hanya di client side
+  if (typeof crypto !== 'undefined') {
+    const rawId = `id-${crypto.randomUUID().replace(/[:]/g, '')}`;
+    filterId.value = `turbulent-displace-${rawId}`;
+  } else {
+    // Fallback untuk environment tanpa crypto
+    filterId.value = `turbulent-displace-${Date.now()}`;
+  }
+
   if (!rootRef.value) return;
   ro = new ResizeObserver(() => updateAnim());
   ro.observe(rootRef.value);
-  updateAnim();
+  
+  // Tunggu sedikit untuk memastikan SVG sudah ter-render
+  setTimeout(updateAnim, 100);
 });
 
 onBeforeUnmount(() => {
@@ -162,7 +178,9 @@ const bgGlowStyle = computed<CSSProperties>(() => ({
 
 <template>
   <div ref="rootRef" :class="['relative isolate', className]" :style="style">
+    <!-- FIX: Conditional rendering untuk hindari SSR mismatch -->
     <svg
+      v-if="filterId"
       ref="svgRef"
       class="fixed opacity-0 w-0 h-0 pointer-events-none"
       style="position: absolute; top: -9999px; left: -9999px"
@@ -191,8 +209,9 @@ const bgGlowStyle = computed<CSSProperties>(() => ({
             <animate attributeName="dx" values="0; -500" dur="6s" repeatCount="indefinite" calcMode="linear" />
           </feOffset>
 
-          <feComposite in="offsetNoise1" in2="offsetNoise2" operator="add" result="verticalNoise" />
-          <feComposite in="offsetNoise3" in2="offsetNoise4" operator="add" result="horizontalNoise" />
+          <!-- FIX: Ganti operator "add" dengan yang valid -->
+          <feBlend in="offsetNoise1" in2="offsetNoise2" mode="screen" result="verticalNoise" />
+          <feBlend in="offsetNoise3" in2="offsetNoise4" mode="screen" result="horizontalNoise" />
           <feBlend in="verticalNoise" in2="horizontalNoise" mode="screen" result="combinedNoise" />
 
           <feDisplacementMap
