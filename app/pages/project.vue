@@ -17,6 +17,74 @@
 
 <script setup lang="ts">
 import ScrollSmoother from '~/components/ScrollSmoother.vue'
+import InfiniteScroll from '~/components/InfiniteScroll.vue'
+
+import {
+  faVuejs,
+  faReact,
+  faJs,
+  faHtml5,
+  faCss3,
+  faGithub,
+  faFigma,
+  faNodeJs,
+  faPython,
+  faDocker
+} from '@fortawesome/free-brands-svg-icons'
+
+// Hanya gambar/icon kecil tanpa teks
+const iconItems = [
+  {
+    icon: faVuejs,
+    color: "text-green-400",
+    alt: "Vue.js"
+  },
+  {
+    icon: faReact,
+    color: "text-blue-400", 
+    alt: "React"
+  },
+  {
+    icon: faJs,
+    color: "text-yellow-400",
+    alt: "JavaScript"
+  },
+  {
+    icon: faHtml5,
+    color: "text-orange-500",
+    alt: "HTML5"
+  },
+  {
+    icon: faCss3,
+    color: "text-blue-500",
+    alt: "CSS3"
+  },
+  {
+    icon: faGithub,
+    color: "text-gray-300",
+    alt: "GitHub"
+  },
+  {
+    icon: faFigma,
+    color: "text-purple-400",
+    alt: "Figma"
+  },
+  {
+    icon: faNodeJs,
+    color: "text-green-500",
+    alt: "Node.js"
+  },
+  {
+    icon: faPython,
+    color: "text-blue-300",
+    alt: "Python"
+  },
+  {
+    icon: faDocker,
+    color: "text-blue-400",
+    alt: "Docker"
+  }
+]
 </script>
 
 <style scoped>
@@ -85,5 +153,6 @@ body {
   padding: 0;
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
+  background: #000;
 }
 </style>

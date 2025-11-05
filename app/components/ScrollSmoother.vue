@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-    <h1 class="text">Ccllectio Images</h1>
+    <h1 class="text">Collectio Images</h1>
     <h1 aria-hidden="true" class="text outline-text">Collectio Images</h1>
     <h1 aria-hidden="true" class="text filter-text">Collectio Images</h1>
     <section id="content">

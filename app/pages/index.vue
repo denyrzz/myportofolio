@@ -2,18 +2,29 @@
     <div class="min-h-screen flex items-center justify-center">
         <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 px-4">
             <div class="text-center lg:text-left">
+                <!-- Di halaman yang menggunakan RotatingText -->
                 <div class="flex items-center justify-center lg:justify-start gap-3 mb-2 relative">
-                    <div class="relative w-32 sm:w-40 md:w-48 lg:w-56 h-16 sm:h-20 md:h-24 lg:h-28">
-                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold">
-                            <RotatingText :texts="['Web', 'App']"
-                                mainClassName="px-3 sm:px-4 bg-white text-black overflow-hidden py-1 sm:py-2 justify-center rounded-lg font-bold w-full h-full"
-                                staggerFrom="last" :initial="{ y: '100%' }" :animate="{ y: 0 }" :exit="{ y: '-100%' }"
-                                :staggerDuration="0.025" splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1"
-                                :transition="{ type: 'spring', damping: 30, stiffness: 400 }"
-                                :rotationInterval="2000" />
+                    <div class="relative w-32 sm:w-40 md:w-48 lg:w-56 h-16 sm:h-20 md:h-24 lg:h-28 flex items-center">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold w-full">
+                            <ClientOnly>
+                                <RotatingText :texts="['Web', 'App']"
+                                    mainClassName="px-3 sm:px-4 bg-white text-black overflow-hidden py-1 sm:py-2 justify-center rounded-lg font-bold w-full h-full flex items-center"
+                                    staggerFrom="last" :initial="{ y: '100%' }" :animate="{ y: 0 }"
+                                    :exit="{ y: '-100%' }" :staggerDuration="0.025"
+                                    splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1"
+                                    :transition="{ type: 'spring', damping: 30, stiffness: 400 }"
+                                    :rotationInterval="2000" />
+                                <template #fallback>
+                                    <div
+                                        class="px-3 sm:px-4 bg-white text-black rounded-lg font-bold w-full h-full flex items-center justify-center">
+                                        Web
+                                    </div>
+                                </template>
+                            </ClientOnly>
                         </h1>
                     </div>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+                    <h1
+                        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white flex items-center h-16 sm:h-20 md:h-24 lg:h-28">
                         Developer
                     </h1>
                 </div>
@@ -27,8 +38,8 @@
                 <div class="flex flex-col p-6 max-w-sm">
                     <div class="mb-6">
                         <div
-                            class="inline-flex items-center px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 mb-4">
-                            <span class="text-xs font-semibold text-blue-400 tracking-wide">FEATURED</span>
+                            class="inline-flex items-center px-3 py-1 rounded-full bg-transparent border border-[#6D9886] mb-4">
+                            <span class="text-xs font-semibold text-[#6D9886] tracking-wide">FEATURED</span>
                         </div>
                         <p class="text-gray-300 text-sm leading-relaxed">
                             Life teaches us lessons through the <br>
@@ -71,4 +82,10 @@
 import RotatingText from "~/components/RotatingText.vue";
 import ElectricBorder from "~/components/ElectricBorder.vue";
 import DecryptedText from "~/components/DecryptedText.vue";
+
+const isMounted = ref(false);
+
+onMounted(() => {
+    isMounted.value = true;
+});
 </script>

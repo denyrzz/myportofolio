@@ -2,11 +2,15 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  ssr: false,
+
   modules: ['@nuxt/image', '@nuxt/ui'],
-    plugins: [
-    '~/plugins/gsap.client.ts'
+
+  plugins: [
+    '~/plugins/gsap.client.ts',
+    '~/plugins/fontawesome.ts'
   ],
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', '@fortawesome/fontawesome-svg-core/styles.css'],
 
   app: {
     head: {
