@@ -3,34 +3,24 @@ import { defineNuxtPlugin } from '#app'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-// Import icons yang dibutuhkan
-import {
-  faCode,
-  faPalette,
-  faMobile,
-  faBrush,
-  faShoppingCart,
-  faRocket
-} from '@fortawesome/free-solid-svg-icons'
-
-import {
-  faGithub,
-  faTwitter,
-  faLinkedin,
-  faInstagram,
-  faFacebook,
+// Import icons
+import { 
   faVuejs,
   faReact,
   faJs,
   faHtml5,
-  faCss3
+  faCss3,
+  faGithub,
+  faFigma,
+  faNodeJs,
+  faPython,
+  faDocker
 } from '@fortawesome/free-brands-svg-icons'
 
-// Tambahkan icons ke library
+// Add icons to library
 library.add(
-  faCode, faPalette, faMobile, faBrush, faShoppingCart, faRocket,
-  faGithub, faTwitter, faLinkedin, faInstagram, faFacebook,
-  faVuejs, faReact, faJs, faHtml5, faCss3
+  faVuejs, faReact, faJs, faHtml5, faCss3,
+  faGithub, faFigma, faNodeJs, faPython, faDocker
 )
 
 export default defineNuxtPlugin((nuxtApp) => {

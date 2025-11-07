@@ -10,7 +10,30 @@ export default defineNuxtConfig({
     '~/plugins/gsap.client.ts',
     '~/plugins/fontawesome.ts'
   ],
+  
   css: ['~/assets/css/main.css', '@fortawesome/fontawesome-svg-core/styles.css'],
+
+  build: {
+    transpile: ['@fortawesome/vue-fontawesome']
+  },
+
+  runtimeConfig: {
+    public: {
+    }
+  },
+
+
+  nitro: {
+    preset: 'node-server',
+    timing: false,
+    serveStatic: true
+  },
+
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => ['client-only'].includes(tag)
+    }
+  },
 
   app: {
     head: {
@@ -18,7 +41,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Portfolio profesional saya' }
+        { name: 'description', content: 'My Portfolio' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
