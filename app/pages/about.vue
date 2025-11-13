@@ -22,14 +22,13 @@
               mobile applications, machine learning, and others.
             </p>
 
-            <!-- Simple Stats -->
             <div class="flex gap-6 pt-2 pb-2">
               <div class="text-center">
                 <div class="text-2xl font-bold text-[#6D9886]">5+</div>
                 <div class="text-sm text-gray-400">Years Learning</div>
               </div>
               <div class="text-center">
-                <div class="text-2xl font-bold text-[#6D9886]">10+</div>
+                <div class="text-2xl font-bold text-[#6D9886]">7+</div>
                 <div class="text-sm text-gray-400">Projects Done</div>
               </div>
             </div>
@@ -53,7 +52,6 @@ import InfiniteScroll from '~/components/InfiniteScroll.vue'
 
 import {
   faVuejs,
-  faReact,
   faJs,
   faHtml5,
   faCss3,
@@ -70,11 +68,7 @@ const techStack = [
     color: "text-green-400",
     alt: "Vue.js"
   },
-  {
-    icon: faReact,
-    color: "text-blue-400",
-    alt: "React"
-  },
+
   {
     icon: faJs,
     color: "text-yellow-400",

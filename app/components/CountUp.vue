@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<Props>(), {
   from: 0,
   direction: 'up',
   delay: 0,
-  duration: 2,
+  duration: 1,
   className: '',
   startWhen: true,
   separator: ''
@@ -36,8 +36,8 @@ const hasStarted = ref(false);
 
 let intersectionObserver: IntersectionObserver | null = null;
 
-const damping = computed(() => 20 + 40 * (1 / props.duration));
-const stiffness = computed(() => 100 * (1 / props.duration));
+const damping = computed(() => 15 + 30 * (1 / props.duration));
+const stiffness = computed(() => 150 * (1 / props.duration));
 
 let velocity = 0;
 let startTime = 0;
@@ -71,12 +71,12 @@ const springAnimation = (timestamp: number) => {
   const dampingForce = velocity * damping.value;
   const acceleration = springForce - dampingForce;
 
-  velocity += acceleration * 0.016; // Assuming 60fps
-  currentValue.value += velocity * 0.016;
+  velocity += acceleration * 0.024;
+  currentValue.value += velocity * 0.024;
 
   updateDisplay();
 
-  if (Math.abs(displacement) > 0.01 || Math.abs(velocity) > 0.01) {
+  if (Math.abs(displacement) > 0.1 || Math.abs(velocity) > 0.1) {
     animationId.value = requestAnimationFrame(springAnimation);
   } else {
     currentValue.value = target;
@@ -102,7 +102,7 @@ const startAnimation = () => {
     startTime = 0;
     velocity = 0;
     animationId.value = requestAnimationFrame(springAnimation);
-  }, props.delay * 1000);
+  }, props.delay * 200);
 };
 
 const setupIntersectionObserver = () => {
@@ -117,8 +117,8 @@ const setupIntersectionObserver = () => {
       }
     },
     {
-      threshold: 0,
-      rootMargin: '0px'
+      threshold: 0.1,
+      rootMargin: '50px'
     }
   );
 

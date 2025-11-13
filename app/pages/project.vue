@@ -1,158 +1,220 @@
 <template>
-  <ClientOnly>
-    <ScrollSmoother>
-      <section class="images">
-        <img data-speed="0.8" src="../assets/images/koleksi6.jpg" alt="">
-        <img data-speed="0.9" src="../assets/images/koleksi2.jpg" alt="">
-        <img data-speed="1" src="../assets/images/koleksi3.jpg" alt="">
-        <img data-speed="1.1" src="../assets/images/koleksi4.jpg" alt="">
-        <img data-speed="0.9" src="../assets/images/koleksi5.jpg" alt="">
-        <img data-speed="1.2" src="../assets/images/koleksi1.jpg" alt="">
-        <img data-speed="0.8" src="../assets/images/koleksi7.jpg" alt="">
-        <img data-speed="1" src="../assets/images/koleksi8.jpg" alt="">
-      </section>
-    </ScrollSmoother>
-  </ClientOnly>
+    <div class="certificates-page">
+        <div class="container">
+            <div class="header">
+                <h1 class="title">
+                    My <span class="accent">Certificates</span> &
+                    <span class="accent">Projects</span>
+                </h1>
+            </div>
+
+            <section class="section">
+                <h2 class="section-title">Certificates</h2>
+                <div class="certificates-grid">
+                    <CertificateCard
+                        v-for="certificate in certificates"
+                        :key="certificate.id"
+                        :certificate="certificate"
+                    />
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid">
+                    <ProjectCard
+                        v-for="project in projects"
+                        :key="project.id"
+                        :project="project"
+                    />
+                </div>
+            </section>
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
-import ScrollSmoother from '~/components/ScrollSmoother.vue'
-import InfiniteScroll from '~/components/InfiniteScroll.vue'
+definePageMeta({
+    title: "Certificates & Projects - Deni Ramadhan",
+});
 
-import {
-  faVuejs,
-  faReact,
-  faJs,
-  faHtml5,
-  faCss3,
-  faGithub,
-  faFigma,
-  faNodeJs,
-  faPython,
-  faDocker
-} from '@fortawesome/free-brands-svg-icons'
+const certificates = [
+    {
+        id: 1,
+        title: "Certificate Member",
+        issuer: "Cybertech PNP",
+        date: "2025",
+        image: "/images/certificates/cybertech.jpg",
+        credentialUrl: "#",
+        skills: ["Public Speaking", "Networking"],
+        buttonType: "",
+    },
+    {
+        id: 2,
+        title: "Cloud Developing",
+        issuer: "AWS Academy",
+        date: "2023",
+        image: "/images/certificates/aws.jpg",
+        credentialUrl:
+            "https://www.credly.com/badges/6005d752-ceef-4224-b82b-323af4b273e1",
+        skills: ["S3", "EC2", "RDS"],
+    },
+    {
+        id: 3,
+        title: "Management Fundamentals",
+        issuer: "Oracle Academy",
+        date: "2024",
+        image: "/images/certificates/oracle.jpg",
+        credentialUrl: "",
+        skills: ["Primavera"],
+        buttonType: "",
+    },
+];
 
-// Hanya gambar/icon kecil tanpa teks
-const iconItems = [
-  {
-    icon: faVuejs,
-    color: "text-green-400",
-    alt: "Vue.js"
-  },
-  {
-    icon: faReact,
-    color: "text-blue-400", 
-    alt: "React"
-  },
-  {
-    icon: faJs,
-    color: "text-yellow-400",
-    alt: "JavaScript"
-  },
-  {
-    icon: faHtml5,
-    color: "text-orange-500",
-    alt: "HTML5"
-  },
-  {
-    icon: faCss3,
-    color: "text-blue-500",
-    alt: "CSS3"
-  },
-  {
-    icon: faGithub,
-    color: "text-gray-300",
-    alt: "GitHub"
-  },
-  {
-    icon: faFigma,
-    color: "text-purple-400",
-    alt: "Figma"
-  },
-  {
-    icon: faNodeJs,
-    color: "text-green-500",
-    alt: "Node.js"
-  },
-  {
-    icon: faPython,
-    color: "text-blue-300",
-    alt: "Python"
-  },
-  {
-    icon: faDocker,
-    color: "text-blue-400",
-    alt: "Docker"
-  }
-]
+const projects = [
+    {
+        id: 1,
+        title: "Project Base Learning KBK",
+        description:
+            "Management Project for KBK that Provides features for managing RPS and UAS",
+        image: "/images/projects/simakti.jpg",
+        liveUrl: "#",
+        githubUrl: "https://github.com/simakti/pblkbk",
+        technologies: ["Laravel", "Chart JS", "MySQL"],
+        category: "Full Stack",
+    },
+    {
+        id: 2,
+        title: "Project Sistem Tugas Akhir",
+        description:
+            "Providing scheduling and guidance features for Intership, Seminar Proposal, and Final Project",
+        image: "/images/projects/sistemta.png",
+        githubUrl: "#",
+        technologies: ["Laravel", "MySQL"],
+        category: "Full Stack",
+    },
+    {
+        id: 3,
+        title: "Project Management Library",
+        description:
+            "This project provides library management system with features for borrowing books from various categories using QR scans, returning books, handling fines, and allowing admins to manage books, categories, and users",
+        image: "/images/projects/library.png",
+        githubUrl: "https://github.com/denyrzz/AdminLibrary.git",
+        technologies: ["Vue JS", "Node JS", "MySQL", "Docker"],
+        category: "Frontend",
+    },
+    {
+        id: 4,
+        title: "Prototype EcoPlast",
+        description:
+            "A prototype app that enables users to buy and sell recyclable materials easily - encouraging waste recycling and sustainable trade",
+        image: "/images/projects/ecoplast.png",
+        githubUrl:
+            "https://www.figma.com/design/cD4k22fg5HlMPnKEW5UkNB/Prototype-EcoPlast?node-id=0-1&t=qZmG9j0xproBj7OX-1",
+        technologies: ["Figma"],
+        category: "UI",
+        buttonType: "figma",
+    },
+    {
+        id: 5,
+        title: "Portfolio Website",
+        description:
+            "A modern portfolio website that highlights my work, technical skills, and passion for building web and mobile applications",
+        image: "/images/projects/porto.png",
+        githubUrl: "https://github.com/denyrzz/myportofolio.git",
+        technologies: ["Nuxt JS", "GSAP", "Vue Bits"],
+        category: "Frontend",
+    },
+    {
+        id: 6,
+        title: "Rose Leaf Diseases Detection",
+        description:
+            "This project detecting diseases in rose leaves using Convolutional Neural Networks. The system is designed to identify and classify leaf diseases from image, helping to support early diagnosis and improve plant health management",
+        image: "/images/projects/rose.png",
+        githubUrl: "#",
+        technologies: ["React", "Flutter", "Express JS", "Tensorflow"],
+        category: "Mobile",
+    },
+];
 </script>
 
 <style scoped>
-.images {
-  padding-top: 60vh;
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  min-height: 150vh;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(20, 2%);
-  grid-template-rows: repeat(30, 3%);
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  z-index: 1;
+.certificates-page {
+    min-height: 100vh;
+    background: transparent;
+    padding: 4rem 1rem;
 }
 
-.images img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.images img:nth-child(1) {
-  grid-area: 1/1/6/8;
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
 }
 
-.images img:nth-child(2) {
-  grid-area: 3/12/8/20;
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
 }
 
-.images img:nth-child(3) {
-  grid-area: 9/5/13/15;
+.accent {
+    color: #6d9886;
 }
 
-.images img:nth-child(4) {
-  grid-area: 14/1/18/8;
+.subtitle {
+    font-size: 1.25rem;
+    color: #d1d5db;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-.images img:nth-child(5) {
-  grid-area: 16/12/20/19;
+.section {
+    margin-bottom: 4rem;
 }
 
-.images img:nth-child(6) {
-  grid-area: 20/2/25/9;
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.images img:nth-child(7) {
-  grid-area: 22/11/24/20;
+.certificates-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
 }
 
-.images img:nth-child(8) {
-  grid-area: 26/5/30/15;
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
 }
-</style>
 
-<style>
-body {
-  margin: 0;
-  color: white;
-  overscroll-behavior: none;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-family: 'Poppins', sans-serif;
-  background: #000;
+@media (min-width: 768px) {
+    .certificates-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .certificates-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 </style>

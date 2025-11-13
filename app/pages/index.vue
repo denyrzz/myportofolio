@@ -2,7 +2,6 @@
     <div class="min-h-screen flex items-center justify-center">
         <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 px-4">
             <div class="text-center lg:text-left">
-                <!-- Di halaman yang menggunakan RotatingText -->
                 <div class="flex items-center justify-center lg:justify-start gap-3 mb-2 relative">
                     <div class="relative w-32 sm:w-40 md:w-48 lg:w-56 h-16 sm:h-20 md:h-24 lg:h-28 flex items-center">
                         <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold w-full">

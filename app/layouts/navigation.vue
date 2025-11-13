@@ -1,4 +1,3 @@
-<!-- components/NavigationBar.vue -->
 <template>
   <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
     <ClientOnly>
@@ -22,12 +21,11 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Project", href: "/project" },
-  { label: "Services", href: "/services" },
+  { label: "Collection", href: "/collection" },
   { label: "Contact", href: "/contact" },
 ];
 
 const isActive = (href: string) => {
-  // Hanya jalankan di client side
   if (process.client) {
     const currentPath = route.path;
     if (href === '/' && currentPath === '/') return true;

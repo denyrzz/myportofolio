@@ -1,4 +1,3 @@
-<!-- components/SplashScreen.vue -->
 <template>
   <div class="splash-screen">
     <CountUp
@@ -29,8 +28,7 @@ const handleStart = () => {
 
 const handleEnd = () => {
   console.log("Splash screen countup completed");
-  
-  // Tunggu sebentar sebelum menutup
+
   setTimeout(() => {
     emit('complete');
   }, 500);

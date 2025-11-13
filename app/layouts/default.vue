@@ -1,13 +1,10 @@
-<!-- layouts/default.vue -->
 <template>
   <div class="relative min-h-screen">
-    <!-- Splash Screen - hanya tampil saat pertama kali -->
     <SplashScreen 
       v-if="showSplash && !hasSeenSplash" 
       @complete="handleSplashComplete" 
     />
-    
-    <!-- Konten Utama -->
+
     <div class="main-content">
       <div class="fixed inset-0 -z-10 pointer-events-none">
         <Particles 
@@ -44,7 +41,6 @@ import SplashScreen from "~/components/SplashScreen.vue";
 const showSplash = ref(true);
 const hasSeenSplash = ref(false);
 
-// Cek apakah sudah pernah melihat splash screen di session ini
 const checkSplashStatus = () => {
   if (process.client) {
     return sessionStorage.getItem('splashShown') === 'true';
@@ -54,17 +50,13 @@ const checkSplashStatus = () => {
 
 const handleSplashComplete = () => {
   showSplash.value = false;
-  // Tandai sudah melihat splash screen
   if (process.client) {
     sessionStorage.setItem('splashShown', 'true');
   }
 };
 
 onMounted(() => {
-  // Cek status saat component mounted
   hasSeenSplash.value = checkSplashStatus();
-  
-  // Jika sudah pernah melihat, langsung sembunyikan splash
   if (hasSeenSplash.value) {
     showSplash.value = false;
   }
@@ -76,7 +68,6 @@ onMounted(() => {
   opacity: 1;
 }
 
-/* Hanya apply animation jika splash screen ditampilkan */
 .splash-screen-shown .main-content {
   opacity: 0;
   animation: fadeIn 0.5s ease forwards;
