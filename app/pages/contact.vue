@@ -9,7 +9,7 @@
     <div class="min-h-screen text-white flex items-center justify-center p-4">
       <div class="w-full max-w-sm  p-6 sm:p-8">
         <div class="flex flex-col items-center">
-          <img src="~/assets/images/gif1.gif" alt="Gif" class="w-50 h-40 mb-5" />
+          <img src="/images/collection/gif1.gif" alt="Gif" class="w-50 h-40 mb-5" />
           <h1 class="text-3xl font-bold text-white mb-2">let's connect</h1>
           <p class="text-gray-400 text-center mb-8">
             Find me on the following platforms for collaboration.

@@ -4,7 +4,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-center">
         <div class="flex justify-center lg:justify-start">
           <div class="relative">
-            <img src="/images/foto2.jpg" alt="Deni Ramadhan"
+            <img src="/images/collection/artjog.jpg" alt="Deni Ramadhan"
               class="w-64 h-64 md:w-80 md:h-80 rounded-2xl object-cover border-4 border-white/50 shadow-2xl" />
             <div class="absolute -inset-4 border-2 border-white/30 rounded-2xl -z-10"></div>
           </div>
@@ -16,13 +16,14 @@
               Hello! I'm <span class="text-[#6D9886]">Deni Ramadhan</span>
             </h2>
 
-            <p class="text-lg md:text-xl text-gray-300 leading-relaxed">
-              I am a Software Engineering Student at Padang State Polytechnic.
-              I have an interest in software and technology. More specifically,
-              mobile applications, machine learning, and others.
+            <p class="text-lg md:text-sm text-gray-300 leading-relaxed mb-2">
+              A Software Engineering student at Padang State Polytechnic. I enjoy building digital products and
+              exploring how technology solves real problems. My main interests include mobile application development,
+              machine learning, and modern software engineering practices. I also enjoy casual photography, especially
+              capturing random and spontaneous moments.
             </p>
 
-            <div class="flex gap-6 pt-2 pb-2">
+            <div class="flex gap-6 pt-1 pb-2">
               <div class="text-center">
                 <div class="text-2xl font-bold text-[#6D9886]">5+</div>
                 <div class="text-sm text-gray-400">Years Learning</div>

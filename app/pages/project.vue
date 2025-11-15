@@ -89,7 +89,7 @@ const projects = [
         description:
             "Providing scheduling and guidance features for Intership, Seminar Proposal, and Final Project",
         image: "/images/projects/sistemta.png",
-        githubUrl: "#",
+        githubUrl: "https://github.com/denyrzz/sistemta.git",
         technologies: ["Laravel", "MySQL"],
         category: "Full Stack",
     },
@@ -131,7 +131,7 @@ const projects = [
         description:
             "This project detecting diseases in rose leaves using Convolutional Neural Networks. The system is designed to identify and classify leaf diseases from image, helping to support early diagnosis and improve plant health management",
         image: "/images/projects/rose.png",
-        githubUrl: "#",
+        githubUrl: "https://github.com/denyrzz/FE-RoseLeafDetection.git",
         technologies: ["React", "Flutter", "Express JS", "Tensorflow"],
         category: "Mobile",
     },

@@ -22,6 +22,7 @@ onMounted(() => {
   if (typeof window !== 'undefined') {
     nextTick(() => {
       try {
+        // Tunggu sedikit lebih lama untuk memastikan DOM siap
         setTimeout(() => {
           const wrapper = document.getElementById('wrapper')
           const content = document.getElementById('content')
@@ -31,8 +32,12 @@ onMounted(() => {
             return
           }
 
-          skewSetter = $gsap.quickTo("img", "skewY")
-          clamp = $gsap.utils.clamp(-20, 20)
+          // Pastikan ada images sebelum setup skew effect
+          const images = document.querySelectorAll('img')
+          if (images.length > 0) {
+            skewSetter = $gsap.quickTo("img", "skewY")
+            clamp = $gsap.utils.clamp(-20, 20)
+          }
 
           smoother = $ScrollSmoother.create({
             wrapper: "#wrapper",
@@ -41,15 +46,20 @@ onMounted(() => {
             speed: 3,
             effects: true,
             onUpdate: (self: any) => {
-              skewSetter(clamp(self.getVelocity() / -50))
+              // Only apply skew if we have images and skewSetter is initialized
+              if (skewSetter && images.length > 0) {
+                skewSetter(clamp(self.getVelocity() / -50))
+              }
             },
             onStop: () => {
-              skewSetter(0)
+              if (skewSetter) {
+                skewSetter(0)
+              }
             }
           })
 
-          console.log('ScrollSmoother initialized successfully')
-        }, 100)
+          console.log('ScrollSmoother initialized successfully with', images.length, 'images')
+        }, 200) // Increased timeout for better DOM readiness
       } catch (error) {
         console.error('ScrollSmoother initialization error:', error)
       }
@@ -60,6 +70,9 @@ onMounted(() => {
 onUnmounted(() => {
   if (smoother) {
     smoother.kill()
+  }
+  if (skewSetter) {
+    skewSetter(0) // Reset skew on unmount
   }
 })
 </script>
@@ -109,5 +122,17 @@ onUnmounted(() => {
   mix-blend-mode: screen;
   color: #804691;
   z-index: 2; 
+}
+
+/* Optional: Add some responsive improvements */
+@media (max-width: 768px) {
+  .text {
+    font-size: 8vw;
+    -webkit-text-stroke-width: 1px;
+  }
+  
+  .outline-text {
+    -webkit-text-stroke-width: 1px;
+  }
 }
 </style>

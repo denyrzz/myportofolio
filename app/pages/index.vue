@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="flex justify-center mb-6">
-                        <img src="../assets/images/foto2.jpg" alt="Your Name - Developer"
+                        <img src="/images/collection/artjog.jpg" alt="Your Name - Developer"
                             class="w-40 h-40 rounded-lg object-cover " />
                     </div>
 
@@ -63,11 +63,11 @@
                                 View GitHub
                             </button>
                         </a>
-                        <a href="https://instagram.com/deny_rzz" target="_blank" rel="noopener noreferrer"
+                        <a href="https://drive.google.com/file/d/1fmkjgtyJjlg5uP59P73LGE_TjujWpT3Y/view?usp=sharing" target="_blank" rel="noopener noreferrer"
                             class="block">
                             <button
                                 class="w-full bg-transparent border border-gray-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-white/5 transition-colors text-sm">
-                                Instagram
+                                View CV
                             </button>
                         </a>
                     </div>

@@ -2,16 +2,16 @@
   <ClientOnly>
     <ScrollSmoother>
       <section class="images">
-        <img data-speed="0.8" src="../assets/images/koleksi6.jpg" alt="">
-        <img data-speed="0.9" src="../assets/images/koleksi2.jpg" alt="">
-        <img data-speed="1" src="../assets/images/koleksi3.jpg" alt="">
-        <img data-speed="1.1" src="../assets/images/koleksi4.jpg" alt="">
-        <img data-speed="0.9" src="../assets/images/koleksi5.jpg" alt="">
-        <img data-speed="1.2" src="../assets/images/koleksi1.jpg" alt="">
-        <img data-speed="0.8" src="../assets/images/koleksi7.jpg" alt="">
-        <img data-speed="1" src="../assets/images/koleksi8.jpg" alt="">
-        <img data-speed="0.9" src="../assets/images/koleksi9.jpg" alt="">
-        <img data-speed="0.8" src="../assets/images/koleksi10.jpg" alt="">
+        <img data-speed="0.8" src="/images/collection/koleksi6.jpg" alt="">
+        <img data-speed="0.9" src="/images/collection/koleksi2.jpg" alt="">
+        <img data-speed="1" src="/images/collection/koleksi3.jpg" alt="">
+        <img data-speed="1.1" src="/images/collection/koleksi4.jpg" alt="">
+        <img data-speed="0.9" src="/images/collection/koleksi5.jpg" alt="">
+        <img data-speed="1.2" src="/images/collection/koleksi1.jpg" alt="">
+        <img data-speed="0.8" src="/images/collection/koleksi7.jpg" alt="">
+        <img data-speed="1" src="/images/collection/koleksi8.jpg" alt="">
+        <img data-speed="0.9" src="/images/collection/koleksi9.jpg" alt="">
+        <img data-speed="0.8" src="/images/collection/koleksi10.jpg" alt="">
       </section>
     </ScrollSmoother>
   </ClientOnly>
@@ -32,7 +32,7 @@ import ScrollSmoother from '~/components/ScrollSmoother.vue'
   height: 100%;
   display: grid;
   grid-template-columns: repeat(20, 2%);
-  grid-template-rows: repeat(38, 3%);
+  grid-template-rows: repeat(38, 2.7%);
   justify-content: center;
   justify-items: center;
   align-items: center;
@@ -46,7 +46,7 @@ import ScrollSmoother from '~/components/ScrollSmoother.vue'
 }
 
 .images img:nth-child(1) {
-  grid-area: 1/1/6/8;
+  grid-area: 1/1/6/10;
 }
 
 .images img:nth-child(2) {
@@ -82,7 +82,7 @@ import ScrollSmoother from '~/components/ScrollSmoother.vue'
 }
 
 .images img:nth-child(10) {
-  grid-area: 32/13/36/20;
+  grid-area: 33/13/38/20;
 }
 </style>
 
