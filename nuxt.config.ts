@@ -24,8 +24,7 @@ export default defineNuxtConfig({
 
 
   nitro: {
-    preset: 'node-server',
-    timing: false,
+    preset: 'vercel',
     serveStatic: true
   },
 
