@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen flex items-center justify-center">
+    <div class="min-h-screen flex items-center justify-center py-8">
         <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 px-4">
             <div class="text-center lg:text-left">
                 <div class="flex items-center justify-center lg:justify-start gap-3 mb-2 relative">
@@ -33,54 +33,43 @@
                     class="text-base sm:text-lg md:text-xl text-white mt-6" encrypted-class-name="text-white-500" />
             </div>
 
-            <ElectricBorder :color="'#ffffff'" :speed="1" :chaos="0.5" :thickness="2" :style="{ borderRadius: '16px' }">
-                <div class="flex flex-col p-6 max-w-sm">
-                    <div class="mb-6">
-                        <div
-                            class="inline-flex items-center px-3 py-1 rounded-full bg-transparent border border-[#6D9886] mb-4">
-                            <span class="text-xs font-semibold text-[#6D9886] tracking-wide">FEATURED</span>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Life teaches us lessons through the <br>
-                            unexpected.
-                        </p>
-                    </div>
+            <div class="flex flex-col items-center gap-6">
+                <FlipPhoto front-image="/images/collection/cyber2.png" back-image="/images/collection/koleksi5.jpg"
+                    front-alt="Professional Photo" back-alt="Creative Work" :sensitivity="1.5" :auto-return="true"
+                    :return-delay="3000" />
 
-                    <div class="flex justify-center mb-6">
-                        <img src="/images/collection/artjog.jpg" alt="Your Name - Developer"
-                            class="w-40 h-40 rounded-lg object-cover " />
-                    </div>
-
-                    <div class="text-center mb-6">
-                        <div class="text-sm text-gray-400 mb-2">Live v1.0</div>
-                        <div class="text-xs text-gray-500">Latest update: Today</div>
-                    </div>
-
-                    <div class="flex flex-col gap-3">
-                        <a href="https://github.com/denyrzz" target="_blank" rel="noopener noreferrer" class="block">
-                            <button
-                                class="w-full bg-white text-black py-3 px-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm">
-                                View GitHub
-                            </button>
-                        </a>
-                        <a href="https://drive.google.com/file/d/1fmkjgtyJjlg5uP59P73LGE_TjujWpT3Y/view?usp=sharing" target="_blank" rel="noopener noreferrer"
-                            class="block">
-                            <button
-                                class="w-full bg-transparent border border-gray-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-white/5 transition-colors text-sm">
-                                View CV
-                            </button>
-                        </a>
-                    </div>
+                <div class="flex gap-3">
+                    <a href="https://github.com/denyrzz" target="_blank" rel="noopener noreferrer">
+                        <button
+                            class="bg-white text-black py-3 px-6 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-sm flex items-center justify-center gap-2 min-w-[120px]">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                            </svg>
+                            GitHub
+                        </button>
+                    </a>
+                    <a href="https://drive.google.com/file/d/1fmkjgtyJjlg5uP59P73LGE_TjujWpT3Y/view?usp=sharing"
+                        target="_blank" rel="noopener noreferrer">
+                        <button
+                            class="bg-transparent border border-gray-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-white/5 transition-colors text-sm flex items-center justify-center gap-2 min-w-[120px]">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            CV
+                        </button>
+                    </a>
                 </div>
-            </ElectricBorder>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import RotatingText from "~/components/RotatingText.vue";
-import ElectricBorder from "~/components/ElectricBorder.vue";
 import DecryptedText from "~/components/DecryptedText.vue";
+import FlipPhoto from "~/components/FlipPhoto.vue";
 
 const isMounted = ref(false);
 
@@ -88,3 +77,32 @@ onMounted(() => {
     isMounted.value = true;
 });
 </script>
+
+<style scoped>
+.min-h-screen {
+    background: transparent;
+}
+
+@media (max-width: 1024px) {
+    .flex-col {
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .flex-col {
+        gap: 2rem;
+    }
+
+    .flex.gap-3 {
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .flex.gap-3 {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+</style>

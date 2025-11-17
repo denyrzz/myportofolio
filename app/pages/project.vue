@@ -142,79 +142,146 @@ const projects = [
 .certificates-page {
     min-height: 100vh;
     background: transparent;
-    padding: 4rem 1rem;
+    padding: 1.5rem 0.75rem;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 0.75rem;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
+    margin-top: 3rem;
 }
 
 .title {
-    font-size: 3rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: white;
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    line-height: 1.2;
 }
 
 .accent {
     color: #6d9886;
 }
 
-.subtitle {
-    font-size: 1.25rem;
-    color: #d1d5db;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
 .section {
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: white;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
 }
 
-.certificates-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-}
-
+.certificates-grid,
 .projects-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.25rem;
+}
+
+@media (min-width: 480px) {
+    .certificates-page {
+        padding: 2rem 1rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .header {
+        margin-top: 3.5rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+    }
 }
 
 @media (min-width: 768px) {
-    .certificates-grid {
-        grid-template-columns: 1fr 1fr;
+    .certificates-page {
+        padding: 3rem 1.5rem;
     }
-
+    
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .header {
+        margin-top: 4rem;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .certificates-grid,
     .projects-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 1.75rem;
+    }
+}
+@media (min-width: 1024px) {
+    .certificates-page {
+        padding: 4rem 2rem;
+    }
+    
+    .container {
+        padding: 0 2rem;
+    }
+    
+    .header {
+        margin-top: 4.5rem;
+    }
+    
+    .title {
+        font-size: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .certificates-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
     }
 }
 
-@media (min-width: 1024px) {
-    .certificates-grid {
-        grid-template-columns: 1fr 1fr 1fr;
+@media (min-width: 1280px) {
+    .certificates-page {
+        padding: 4rem 0;
     }
-
-    .projects-grid {
-        grid-template-columns: 1fr 1fr 1fr;
+    
+    .container {
+        padding: 0;
+    }
+    
+    .header {
+        margin-top: 5rem; 
     }
 }
 </style>

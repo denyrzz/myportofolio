@@ -23,12 +23,12 @@ import ScrollSmoother from '~/components/ScrollSmoother.vue'
 
 <style scoped>
 .images {
-  padding-top: 60vh;
+  padding-top: 40vh;
   position: relative;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  min-height: 150vh;
+  min-height: 180vh;
   height: 100%;
   display: grid;
   grid-template-columns: repeat(20, 2%);
@@ -37,12 +37,15 @@ import ScrollSmoother from '~/components/ScrollSmoother.vue'
   justify-items: center;
   align-items: center;
   z-index: 1;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .images img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(1.1);
 }
 
 .images img:nth-child(1) {
@@ -84,6 +87,47 @@ import ScrollSmoother from '~/components/ScrollSmoother.vue'
 .images img:nth-child(10) {
   grid-area: 33/13/38/20;
 }
+
+@media (min-width: 768px) {
+  .images {
+    padding-top: 50vh;
+    min-height: 160vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .images img {
+    transform: scale(1.05);
+  }
+}
+
+@media (min-width: 1024px) {
+  .images {
+    padding-top: 60vh;
+    min-height: 150vh;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .images img {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 360px) {
+  .images {
+    transform: scale(1.15);
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .images {
+    transform: scale(1.3); 
+    min-height: 200vh;
+  }
+}
 </style>
 
 <style>
@@ -96,5 +140,20 @@ body {
   overflow-x: hidden;
   font-family: 'Poppins', sans-serif;
   background: #000;
+}
+
+html {
+  -webkit-overflow-scrolling: touch;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 </style>
