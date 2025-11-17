@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center py-16 px-4">
+  <div class="min-h-screen flex items-center justify-center py-16 px-4 pt-20 sm:pt-16">
     <div class="backdrop-blur-lg bg-white/5 rounded-3xl border border-white/20 p-6 md:p-12 max-w-4xl w-full mx-4">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-12 items-center">
         <div class="flex justify-center lg:justify-start order-1 lg:order-2">
@@ -117,3 +117,17 @@ const techStack = [
   }
 ]
 </script>
+
+<style scoped>
+@media (max-width: 768px) {
+  .min-h-screen {
+    padding-top: 6rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .min-h-screen {
+    padding-top: 5rem;
+  }
+}
+</style>

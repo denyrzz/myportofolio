@@ -8,27 +8,22 @@
     <div class="min-h-screen text-white flex items-center justify-center p-4 sm:p-6">
       <div class="w-full max-w-md p-6 sm:p-8">
         <div class="flex flex-col items-center">
-          <!-- GIF dengan ukuran responsif -->
           <img 
             src="/images/collection/gif1.gif" 
             alt="Gif" 
             class="w-40 h-32 sm:w-50 sm:h-40 mb-6 sm:mb-5" 
           />
-          
-          <!-- Judul dengan ukuran responsif -->
+
           <h1 class="text-2xl sm:text-3xl font-bold text-white mb-3 text-center">
             let's connect
           </h1>
           
-          <!-- Deskripsi -->
           <p class="text-gray-400 text-center mb-8 text-sm sm:text-base leading-relaxed max-w-xs">
             Find me on the following platforms for collaboration.
           </p>
 
-          <!-- Container tombol dengan spacing yang lebih baik -->
           <div class="flex flex-col gap-4 w-full max-w-xs sm:max-w-none">
 
-            <!-- LinkedIn -->
             <a 
               href="https://www.linkedin.com/in/deni-ramadhannn/" 
               target="_blank" 
@@ -42,7 +37,6 @@
               <span>LinkedIn</span>
             </a>
 
-            <!-- Instagram -->
             <a 
               href="https://instagram.com/deny_rzz" 
               target="_blank" 
@@ -56,7 +50,6 @@
               <span>Instagram</span>
             </a>
 
-            <!-- Email -->
             <a 
               href="mailto:denirodriquez@gmail.com"
               class="w-full bg-transparent border border-gray-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-white/10 transition-colors text-center text-sm flex items-center justify-center gap-3"

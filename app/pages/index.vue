@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen flex items-center justify-center py-8">
+    <div class="min-h-screen flex items-center justify-center py-8 pt-20 sm:pt-8">
         <div class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 px-4">
             <div class="text-center lg:text-left">
                 <div class="flex items-center justify-center lg:justify-start gap-3 mb-2 relative">
@@ -83,6 +83,12 @@ onMounted(() => {
     background: transparent;
 }
 
+@media (max-width: 768px) {
+    .min-h-screen {
+        padding-top: 5rem;
+    }
+}
+
 @media (max-width: 1024px) {
     .flex-col {
         gap: 3rem;
@@ -103,6 +109,10 @@ onMounted(() => {
     .flex.gap-3 {
         flex-direction: column;
         gap: 0.5rem;
+    }
+    
+    .min-h-screen {
+        padding-top: 6rem;
     }
 }
 </style>
