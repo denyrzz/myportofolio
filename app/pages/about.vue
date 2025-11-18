@@ -15,11 +15,13 @@
               Hello! I'm <span class="text-[#6D9886]">Deni Ramadhan</span>
             </h2>
 
-            <p class="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed text-center lg:text-left">
+            <p
+              class="text-xs sm:text-sm md:text-sm lg:text-base text-gray-300 leading-relaxed text-center lg:text-left">
               A Software Engineering student at Padang State Polytechnic. I enjoy building digital products and
               exploring how technology solves real problems. My main interests include mobile application development,
               machine learning, and modern software engineering practices. I also enjoy casual photography, especially
-              capturing random and spontaneous moments.
+              capturing random and spontaneous moments. And I have experience serving as a Networking Staff and later
+              leading the 2024 Musyawarah Besar as Chief Organizer.
             </p>
 
             <div class="flex justify-center lg:justify-start gap-4 sm:gap-6 pt-2">
@@ -33,16 +35,10 @@
               </div>
             </div>
           </div>
-          
+
           <div class="mt-6 md:mt-8">
-            <InfiniteScroll 
-              :items="techStack" 
-              :item-width="40" 
-              :item-height="40" 
-              :speed="0.6" 
-              direction="left"
-              :pause-on-hover="true" 
-            />
+            <InfiniteScroll :items="techStack" :item-width="40" :item-height="40" :speed="0.6" direction="left"
+              :pause-on-hover="true" />
           </div>
         </div>
       </div>
@@ -121,7 +117,7 @@ const techStack = [
 <style scoped>
 @media (max-width: 768px) {
   .min-h-screen {
-    padding-top: 6rem; 
+    padding-top: 6rem;
   }
 }
 
