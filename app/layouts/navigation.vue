@@ -1,9 +1,9 @@
 <template>
-<nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-xs sm:max-w-lg px-4">
+  <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md sm:max-w-lg px-4">
     <ClientOnly>
-      <div class="hidden sm:flex items-center gap-0 bg-black/30 backdrop-blur-md rounded-xl p-1 border border-white/10">
+      <div class="hidden sm:flex items-center gap-0 bg-black/30 backdrop-blur-md rounded-xl p-1 border border-white/10 w-full">
         <a v-for="(item, index) in navItems" :key="index" :href="item.href"
-          class="px-4 py-2 mx-1 rounded-lg transition-all duration-300 cursor-pointer text-sm font-medium" :class="{
+          class="flex-1 px-3 py-2 text-center rounded-lg transition-all duration-300 cursor-pointer text-sm font-medium" :class="{
             'text-white bg-white/20': isActive(item.href),
             'text-gray-400 hover:text-white hover:bg-white/10': !isActive(item.href)
           }">
